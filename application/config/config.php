@@ -17,8 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://localhost/image_insert/';
-
+$config['base_url'] = 'https://localhost/ajax_crud_image/';
 
 /*
 |--------------------------------------------------------------------------

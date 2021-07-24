@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head> 
-    <!-- <meta charset="utf-8"> -->
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CodeIgniter CRUD with AJAX , Bootstrap Modals and Datatables</title>
     <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -16,8 +17,8 @@
   <body>
 
   <div class="container">
-    <h1> CRUD  AJAX </h1>
-	  <h3>Picture</h3>
+    <h1>image with AJAX</h1>
+    <h3>Person Data</h3>
     <br />
     <button class="btn btn-success" onclick="add_person()"><i class="glyphicon glyphicon-plus"></i> Add Person</button>
     <br />
@@ -30,6 +31,8 @@
           <th style="width:125px;">Action</th>
         </tr>
       </thead>
+      <tbody>
+      </tbody>
     </table>
 	
   </div>
@@ -55,6 +58,14 @@
             "url": "<?php echo site_url('person/ajax_list')?>",
             "type": "POST"
         },
+
+        //Set column definition initialisation properties.
+        "columnDefs": [
+        { 
+          "targets": [ -1 ], //last column
+          "orderable": false, //set not orderable
+        },
+        ],
 
       });
     });
@@ -181,24 +192,17 @@
                 <input name="lastName" placeholder="Last Name" class="form-control" type="text">
               </div>
             </div>
-            <div class="form-group">
-              <label class="control-label col-md-3">image</label>
-              <div class="col-md-9">
-              <input type="file" name="image_file" multiple="true" accept="image/*" id="finput" onchange="readURL(this);"></br></br>
-              </div>
-            </div>
-            
-          </div>
+                      </div>
         </form>
           </div>
           <div class="modal-footer">
             <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
           </div>
-        </div>
-      </div>
-        </div>
-  <!-- inser -->
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  <!-- End Bootstrap modal -->
  
   </body>
 </html>

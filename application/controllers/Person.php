@@ -54,7 +54,7 @@ class Person extends CI_Controller {
 	{
 		$data = array(
 				'firstName' => $this->input->post('firstName'),
-				'lastName' => $this->input->post('lastName'),
+				'lastName' => $this->input->post('lastName')
 			);
 		$insert = $this->person->save($data);
 		echo json_encode(array("status" => TRUE));
@@ -64,7 +64,7 @@ class Person extends CI_Controller {
 	{
 		$data = array(
 				'firstName' => $this->input->post('firstName'),
-				'lastName' => $this->input->post('lastName'),
+				'lastName' => $this->input->post('lastName')
 			);
 		$this->person->update(array('id' => $this->input->post('id')), $data);
 		echo json_encode(array("status" => TRUE));
